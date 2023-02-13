@@ -29,22 +29,6 @@ jobs:
       - name: Clone Git repository
         uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '16'
-          cache: npm
-          cache-dependency-path: ./.semver
-      - if: github.event_name == 'push'
-        name: Install NPM modules
-        working-directory: ./.semver
-        run: npm ci
-      - if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        name: Bump version (release)
-        working-directory: ./.semver
-        run: npm run release -- --release-as='patch'
-
-
       - name: Link docker-compose.override.yml
         run: ln -s ./.github/docker-compose.override.yml .
       - name: Build Docker images

@@ -1,14 +1,4 @@
-# Symfony Bootstrap
-
-Modern Symfony (PHP) project template created in order to follow 12-factor-app principles. Great starter for small,
-medium and large projects.
-
-## Motivation
-
-While working in few major IT companies in Poland, I saw how many people are struggling with creating simple, yet
-effective work environment. Sometimes people were just following Symfony Docs - they of course are good for learning,
-however they are not following the [12-Factor-App](https://12factor.net) recommendations. Also, the way how Symfony
-recommends using Docker is far from perfect, hence I created this bootstrap.
+# General train, station and stop API
 
 ## PHP, Symfony and the database
 
@@ -30,9 +20,6 @@ docker --version
 docker compose version
 > Docker Compose version v2.6.1
 ```
-
-## How to adapt
-
 ## Building environment for development
 
 First things first you have to copy the development environment template. It' located in `.devcontainer`, I'd reccomend

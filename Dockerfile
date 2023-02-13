@@ -1,4 +1,4 @@
-FROM ghcr.io/archi-tektur/caddy-php:1.1.0 AS app
+FROM ghcr.io/archi-tektur/caddy-php:2.1.0 AS app
 
 ENV VERSION="1.0.4"
 

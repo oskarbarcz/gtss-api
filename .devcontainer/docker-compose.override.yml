@@ -19,11 +19,11 @@ services:
       # Application
       APP_ENV: "dev"
       APP_SECRET: "a9806d99cd5c1503d8af30c963c9411f"
-      DATABASE_URL: "mysql://user:password@mariadb:3306/symfony-bootstrap"
+      DATABASE_URL: "mysql://user:password@mariadb:3306/gtss-api"
     extra_hosts:
       - "host.docker.internal:172.17.0.1"
     ports:
-      - "38080:8080"
+      - "38080:80"
     volumes:
       - type: volume
         source: composer_cache
