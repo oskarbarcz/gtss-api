@@ -1,0 +1,38 @@
+name: continuous-deployment
+on:
+  push:
+    branches:
+      - develop
+      - main
+    paths:
+      - "**"
+      - "!**.md"
+  pull_request:
+    paths:
+      - "**"
+      - "!**.md"
+jobs:
+  job0:
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone Git repository
+        uses: actions/checkout@v3
+
+      - name: Link docker-compose.override.yml
+        run: ln -s ./.github/docker-compose.override.yml .
+
+      - name: Build Docker images
+        run: docker-compose build
+      - name: Run Docker containers
+        run: docker-compose up --detach
+
+      - name: Run code lint check
+        run: docker-compose exec -T --env PHP_CS_FIXER_IGNORE_ENV=true app composer run-lint-check
+      - name: Run code static analysis
+        run: docker-compose exec -T app composer run-phpstan-analysis
+      - name: Run unit tests
+        run: docker-compose exec -T app composer run-unit-tests
+#      - name: Run functional tests
+#        run: docker-compose exec -T app composer run-functional-tests
+      - name: Destroy Docker containers
+        run: docker-compose down --volumes --remove-orphans

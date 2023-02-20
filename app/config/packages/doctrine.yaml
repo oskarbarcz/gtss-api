@@ -8,16 +8,25 @@ doctrine:
         naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
         auto_mapping: true
         mappings:
-#            App:
-#                is_bundle: false
-#                dir: '%kernel.project_dir%/src/Entity'
-#                prefix: 'App\Entity'
-#                alias: App
+            Geolocation:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Geolocation/Entity'
+                prefix: 'App\Geolocation\Entity'
+                alias: Geolocation
+            Scheduling:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Scheduling/Entity'
+                prefix: 'App\Scheduling\Entity'
+                alias: Scheduling
+            Administration:
+                is_bundle: false
+                dir: '%kernel.project_dir%/src/Administration/Entity'
+                prefix: 'App\Administration\Entity'
+                alias: Administration
 
 when@test:
     doctrine:
         dbal:
-            # "TEST_TOKEN" is typically set by ParaTest
             dbname_suffix: '_test%env(default::TEST_TOKEN)%'
 
 when@prod:
@@ -30,7 +39,6 @@ when@prod:
             result_cache_driver:
                 type: pool
                 pool: doctrine.result_cache_pool
-
     framework:
         cache:
             pools:
