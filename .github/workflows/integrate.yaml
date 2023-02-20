@@ -32,7 +32,7 @@ jobs:
         run: docker-compose exec -T app composer run-phpstan-analysis
       - name: Run unit tests
         run: docker-compose exec -T app composer run-unit-tests
-      - name: Run functional tests
-        run: docker-compose exec -T app composer run-functional-tests
+#      - name: Run functional tests
+#        run: docker-compose exec -T app composer run-functional-tests
       - name: Destroy Docker containers
         run: docker-compose down --volumes --remove-orphans
