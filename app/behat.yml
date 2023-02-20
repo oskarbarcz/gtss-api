@@ -1,0 +1,19 @@
+default:
+    suites:
+        default:
+            contexts:
+                - Ubirak\RestApiBehatExtension\RestApiContext
+                - Ubirak\RestApiBehatExtension\Json\JsonContext
+    extensions:
+        FriendsOfBehat\SymfonyExtension:
+            kernel:
+                class: App\Common\Kernel
+                environment: test
+        Ubirak\RestApiBehatExtension\Extension:
+                    rest:
+                        base_url: http://localhost
+                        store_response: true
+        Behat\MinkExtension:
+            sessions:
+                default:
+                    symfony: ~
