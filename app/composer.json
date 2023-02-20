@@ -10,15 +10,25 @@
         "ext-ctype": "*",
         "ext-curl": "*",
         "ext-iconv": "*",
+        "doctrine/annotations": "^2.0",
         "doctrine/doctrine-bundle": "^2.6",
+        "doctrine/doctrine-fixtures-bundle": "^3.4",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.11",
+        "nyholm/psr7": "^1.5",
+        "php-http/httplug-bundle": "^1.27",
+        "phpdocumentor/reflection-docblock": "^5.3",
+        "phpstan/phpdoc-parser": "^1.16",
         "symfony/dotenv": "6.2.*",
         "symfony/flex": "^2",
         "symfony/framework-bundle": "6.2.*",
         "symfony/http-client": "6.2.*",
         "symfony/monolog-bundle": "^3.8",
+        "symfony/property-access": "6.2.*",
+        "symfony/property-info": "6.2.*",
         "symfony/runtime": "6.2.*",
+        "symfony/serializer": "6.2.*",
+        "symfony/uid": "6.2.*",
         "symfony/yaml": "6.2.*"
     },
     "config": {
@@ -26,7 +36,8 @@
             "composer/package-versions-deprecated": true,
             "symfony/flex": true,
             "symfony/runtime": true,
-            "phpstan/extension-installer": true
+            "phpstan/extension-installer": true,
+            "php-http/discovery": true
         },
         "optimize-autoloader": true,
         "preferred-install": {
@@ -64,7 +75,7 @@
             "@auto-scripts"
         ],
         "run-unit-tests": "php bin/phpunit --do-not-cache-result --testsuite unit",
-        "run-functional-tests": "php bin/phpunit --do-not-cache-result --testsuite functional",
+        "run-functional-tests": "php vendor/bin/behat --format progress",
         "run-lint-check": "./vendor/bin/php-cs-fixer fix --dry-run --using-cache no",
         "run-lint-fix": "./vendor/bin/php-cs-fixer fix",
         "run-phpstan-analysis": "./vendor/bin/phpstan analyse",
@@ -84,12 +95,19 @@
         }
     },
     "require-dev": {
+        "friends-of-behat/mink-browserkit-driver": "^1.6",
+        "friends-of-behat/mink-extension": "^2.7",
+        "friends-of-behat/symfony-extension": "^2.4",
         "friendsofphp/php-cs-fixer": "^3.8",
         "phpstan/extension-installer": "^1.1",
         "phpstan/phpstan": "^1.5",
         "phpstan/phpstan-phpunit": "^1.1",
         "phpstan/phpstan-symfony": "^1.1",
         "phpunit/phpunit": "^9.5",
-        "symfony/phpunit-bridge": "^6.0"
+        "symfony/browser-kit": "6.2.*",
+        "symfony/css-selector": "6.2.*",
+        "symfony/maker-bundle": "^1.48",
+        "symfony/phpunit-bridge": "^6.0",
+        "ubirak/rest-api-behat-extension": "^8.2"
     }
 }
