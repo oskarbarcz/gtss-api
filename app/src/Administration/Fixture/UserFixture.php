@@ -18,7 +18,7 @@ class UserFixture extends AbstractFixture
 
     public function load(ObjectManager $manager): void
     {
-        $user = new User(Uuid::fromString('00000000-0000-0001-0000-000000000000'));
+        $user = new User(Uuid::fromString('00000000-0000-0034-0000-000000000011'));
         $user->setName('Test Dummy');
         $user->setEmail('test@test.com');
 
