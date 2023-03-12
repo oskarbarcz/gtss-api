@@ -5,3 +5,6 @@ kernel:
 train:
     resource: ../src/Scheduling/Controller/Train/
     type: attribute
+
+api_login_check:
+    path: /api/auth/login_check

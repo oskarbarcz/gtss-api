@@ -50,3 +50,6 @@ app/var
 /app/log/*
 !app/var/log/.gitkeep
 
+###> lexik/jwt-authentication-bundle ###
+/config/jwt/*.pem
+###< lexik/jwt-authentication-bundle ###
